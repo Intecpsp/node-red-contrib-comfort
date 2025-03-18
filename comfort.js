@@ -43,7 +43,7 @@ module.exports = function (RED) {
         node.comfortFieldType = n.comfortFieldType || 'msg';
         node.sensationField = n.sensationField || 'payload.sensation';
         node.sensationFieldType = n.sensationFieldType || 'msg';
-        node.ppdField = n.ppdField || 'payload.ppd';
+        node.ppdField = n.ppdField || 'payload.percentageDissatisfied';
         node.ppdFieldType = n.ppdFieldType || 'msg';
         
         node.on('input', function (msg) {
