@@ -43,6 +43,9 @@ module.exports = function (RED) {
         node.comfortFieldType = n.comfortFieldType || 'msg';
         node.sensationField = n.sensationField || 'payload.sensation';
         node.sensationFieldType = n.sensationFieldType || 'msg';
+        node.ppdField = n.ppdField || 'payload.ppd';
+        node.ppdFieldType = n.ppdFieldType || 'msg';
+        
         node.on('input', function (msg) {
             var errorStr = '';
 
@@ -103,6 +106,14 @@ module.exports = function (RED) {
                 node.context().flow.set(node.sensationField, sensation);
             } else if (node.sensationFieldType === 'global') {
                 node.context().global.set(node.sensationField, sensation);
+            }
+ 
+            if (node.ppdFieldType === 'msg') {
+                RED.util.setMessageProperty(msg, node.ppdField, comfort.ppd);
+            } else if (node.ppdFieldType === 'flow') {
+                node.context().flow.set(node.ppdField, comfort.ppd);
+            } else if (node.ppdFieldType === 'global') {
+                node.context().global.set(node.ppdField, comfort.ppd);
             }
 
             node.send(msg);
