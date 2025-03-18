@@ -94,6 +94,11 @@
                 types: ['msg','flow','global'],
                 typeField: $("#node-input-sensationFieldType")
             });
+            $("#node-input-ppdField").typedInput({
+                default: 'msg',
+                types: ['msg','flow','global'],
+                typeField: $("#node-input-ppdFieldType")
+            });
         }
     });
 </script>
@@ -142,6 +147,11 @@
         <label for="node-input-sensationField"><i class="fa fa-edit"></i> Sensation Property</label>
         <input type="text" id="node-input-sensationField" placeholder="Property to store sensation" style="width:250px;">
         <input type="hidden" id="node-input-sensationFieldType">
+    </div>
+    <div class="form-row">
+        <label for="node-input-ppdField"><i class="fa fa-edit"></i> Percentage of Dissatisfied Property</label>
+        <input type="text" id="node-input-ppdField" placeholder="Property to store PPD" style="width:250px;">
+        <input type="hidden" id="node-input-ppdFieldType">
     </div>
 </script>
 
@@ -237,6 +247,8 @@
                 <tr><td>&lt; -2.5</td><td>cold</td></tr>
             </table>
         </dd>
+        <dt>Percentage of Dissatisfied Property Property <span class="property-type">number</span></dt>
+        <dd>The property used to store the PPD level result.
     </dl>
 
 <h3>Details</h3>
